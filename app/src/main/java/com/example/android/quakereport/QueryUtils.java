@@ -47,8 +47,6 @@ public final class QueryUtils {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
-            // build up a list of Earthquake objects with the corresponding data.
             // Convert SAMPLE_JSON_RESPONSE String into a JSONObject
             JSONObject jsonObject = new JSONObject(SAMPLE_JSON_RESPONSE);
 
@@ -60,20 +58,20 @@ public final class QueryUtils {
                 JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
 
-                String mag = properties.getString("mag");
+                // Extract the value for the key called "mag"
+                double mag = properties.getDouble("mag");
                 // Extract “place” for location
                 String location = properties.getString("place");
                 // Extract “time” for time
                 long time = properties.getLong("time");
+                // Extract "URL" for the current earthquake
+                String url = properties.getString("url");
 
                 // Create Earthquake java object from magnitude, location, and time
-                Earthquake earthquake = new Earthquake(mag, location, time);
+                Earthquake earthquake = new Earthquake(mag, location, time, url);
                 // Add earthquake to list of earthquakes
                 earthquakes.add(earthquake);
             }
-
-
-
 
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,

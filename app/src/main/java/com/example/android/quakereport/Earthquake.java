@@ -9,7 +9,7 @@ public class Earthquake {
     /**
      * Measure of the size of the earthquake
      */
-    private String mMagnitude;
+    private double mMagnitude;
 
     /**
      * Location of the earthquake
@@ -19,6 +19,8 @@ public class Earthquake {
     /** Time of the earthquake */
     private long mTimeInMilliseconds;
 
+    private String mUrl;
+
     /**
      * Create a new com.example.android.quakereport.Earthquake object.
      *
@@ -27,16 +29,17 @@ public class Earthquake {
      * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
      *  earthquake happened
      */
-    public Earthquake(String magnitude, String location, long timeInMilliseconds) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
         mMagnitude = magnitude;
         mLocation = location;
         mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = url;
     }
 
     /**
      * Get the size of the earthquake
      */
-    public String getMagnitude() {
+    public double getMagnitude() {
         return mMagnitude;
     }
 
@@ -52,5 +55,12 @@ public class Earthquake {
      */
     public long getTimeInMilliseconds() {
         return mTimeInMilliseconds;
+    }
+
+    /**
+     * Get the url of the earthquake
+     */
+    public String getUrl() {
+        return mUrl;
     }
 }
