@@ -62,7 +62,7 @@ public final class QueryUtils {
             // For each earthquake in the earthquakeArray, create an {@link Earthquake} object
             for (int i = 0; i < earthquakeArray.length(); i++) {
 
-                // Get a single earthquake at position i within the list of earthquakes
+                // Get a single earthquake and position it within the list of earthquakes
                 JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
 
                 // For a given earthquake, extract the JSONObject associated with the
@@ -70,7 +70,7 @@ public final class QueryUtils {
                 // for that earthquake.
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
 
-                // Extract the value for the key called "mag"
+                // Extract the value from the key called "mag"
                 double mag = properties.getDouble("mag");
 
                 // Extract “place” for location
@@ -105,6 +105,15 @@ public final class QueryUtils {
      * Query the USGS dataset and return a list of {@link Earthquake} object.
      */
     public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
+
+        // Delay the network response by 2 sec, in order to see how the progress bar works
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Log.e(LOG_TAG, "When is fetching the data called?");
         // Create URL object
         URL url = createUrl(requestUrl);
 

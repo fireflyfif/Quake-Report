@@ -25,7 +25,7 @@ public class Earthquake {
      * Create a new com.example.android.quakereport.Earthquake object.
      *
      * @param magnitude is the measure of the size of the earthquake
-     * @param location is the place where the earthquake occerred
+     * @param location is the place where the earthquake occurred
      * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
      *  earthquake happened
      */
