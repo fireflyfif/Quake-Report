@@ -22,7 +22,7 @@ public class Earthquake {
     private String mUrl;
 
     /**
-     * Create a new com.example.android.quakereport.Earthquake object.
+     * Create a new Earthquake object.
      *
      * @param magnitude is the measure of the size of the earthquake
      * @param location is the place where the earthquake occurred
